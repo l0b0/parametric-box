@@ -47,6 +47,13 @@ item_height = 125;
 item_depth = 7;
 */
 
+/*
+// Keep case <http://en.wikipedia.org/wiki/Keep_case>, used for DVDs:
+item_width = 135;
+item_height = 190;
+item_depth = 15;
+*/
+
 // Items configuration
 // Set how many items you want to be able to fit inside the box.
 items = 8;
