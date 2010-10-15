@@ -3,7 +3,12 @@ Parametric box
 
 Description: Print a box to hold a given number of items of a specified size.
 
-Configuration: Uncomment one of the "Size configuration" sections below, and set the items variable to the desired amount. Please check the size of the resulting model before printing!
+Configuration:
+- Uncomment one of the "Size configuration" sections.
+- Set the items variable to the desired amount.
+- Check the size of the resulting model before printing!
+
+Git repository: http://github.com/l0b0/parametric-box
 
 Copyright (C) 2010 Victor Engmark
 
@@ -40,9 +45,11 @@ item_depth = 7;
 */
 
 // Items configuration
-// Set how many items you want to be able to fit inside the box
+// Set how many items you want to be able to fit inside the box.
 items = 8;
 
+// Wall configuration
+// Set how thick you want the wall (depends too much on aesthetics to auto-generate).
 wall_thickness = 5;
 
 module debug_item() {
