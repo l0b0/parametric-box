@@ -37,19 +37,66 @@ items = 8;
 
 wall_thickness = 5;
 
-interior_x = items * item_depth;
-interior_y = item_height;
-interior_z = item_width;
-
 module debug_item() {
     cube(size = [item_depth, item_height, item_width]);
 }
 
 module debug_items() {
     for( index = [0:items - 1] ) {
-        # translate ([index * item_depth, 0, 0]) debug_item();
+        translate ([index * item_depth + wall_thickness, wall_thickness, wall_thickness]) {
+            debug_item();
+        }
     }
 }
-debug_items(); // Comment this if you don't want to see the items themselves
+
+// Comment this if you don't want to see the items themselves
+# debug_items();
 
 
+interior_x = items * item_depth;
+interior_y = item_height;
+interior_z = item_width;
+
+exterior_x = interior_x + 2 * wall_thickness;
+exterior_y = interior_y + 2 * wall_thickness;
+exterior_z = interior_z + wall_thickness; // Smaller because of the opening
+
+module top_bottom_plate() {
+    cube(size = [exterior_x, wall_thickness, exterior_z]);    
+}
+
+module top_bottom() {
+    union() {
+        top_bottom_plate();
+        translate([0, interior_y + wall_thickness, 0]) {
+            top_bottom_plate();
+        }
+    }
+}
+
+module left_right_plate() {
+    cube(size = [wall_thickness, exterior_y, exterior_z]);        
+}
+
+module left_right() {
+    union() {
+        left_right_plate();
+        translate([interior_x + wall_thickness, 0, 0]) {
+            left_right_plate();
+        }
+    }    
+}
+
+module back() {
+    cube(size = [exterior_x, exterior_y, wall_thickness]);
+}
+
+module box() {
+    union() {
+        top_bottom();
+        left_right();
+        back();
+    }
+}
+
+box();
