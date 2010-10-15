@@ -14,8 +14,16 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Size configuration
-// Uncomment one of the sections below or set your own
+/*
+Size configuration
+Uncomment one of the sections below or set your own
+The sizes are as seen from the "front", i.e., the cover of a book or CD.
+*/
+
+// Default size in case of no configuration
+item_width = 50;
+item_height = 30;
+item_depth = 10;
 
 /*
 // Jewel case <http://en.wikipedia.org/wiki/Optical_disc_packaging#Jewelry_case>, the common size for CDs:
@@ -42,9 +50,11 @@ module debug_item() {
 }
 
 module debug_items() {
-    for( index = [0:items - 1] ) {
-        translate ([index * item_depth + wall_thickness, wall_thickness, wall_thickness]) {
-            debug_item();
+    translate([-exterior_x / 2, -exterior_y / 2, 0]) {
+        for( index = [0:items - 1] ) {
+            translate ([index * item_depth + wall_thickness, wall_thickness, wall_thickness]) {
+                debug_item();
+            }
         }
     }
 }
@@ -92,10 +102,12 @@ module back() {
 }
 
 module box() {
-    union() {
-        top_bottom();
-        left_right();
-        back();
+    translate([-exterior_x / 2, -exterior_y / 2, 0]) {
+        union() {
+            top_bottom();
+            left_right();
+            back();
+        }
     }
 }
 
