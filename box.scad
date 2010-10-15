@@ -1,13 +1,10 @@
 /*
-Parametric box
-
-Description: Print a box to hold a given number of items of a specified size.
-
 Configuration:
 - Uncomment one of the "Size configuration" sections.
 - Set the items variable to the desired amount.
 - Set wall_thickness if you want to.
-- Check the size of the resulting model before printing!
+
+See README for more information.
 
 Git repository: http://github.com/l0b0/parametric-box
 

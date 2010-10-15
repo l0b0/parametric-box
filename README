@@ -1,1 +1,11 @@
-Parametric box
+Parametric box - Print a box to hold a given number of items of a specified size.
+
+Instructions:
+1. Open in OpenSCAD.
+2. Uncomment one of the "Size configuration" sections.
+3. Set the items variable to the desired amount.
+4. Set wall_thickness if you want to.
+5. Compile and render (F6)
+6. Design -> Export as STL...
+7. Check the size of the resulting model using for example Skeinforge.
+8. Print
