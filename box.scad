@@ -59,8 +59,8 @@ module debug_items() {
     }
 }
 
-// Comment this if you don't want to see the items themselves
-# debug_items();
+// Uncomment this if you want to see the items themselves
+//# debug_items();
 
 
 interior_x = items * item_depth;
