@@ -21,9 +21,9 @@ The sizes are as seen from the "front", i.e., the cover of a book or CD.
 */
 
 // Default size in case of no configuration
-item_width = 50;
-item_height = 30;
-item_depth = 10;
+item_width = 65;
+item_height = 100;
+item_depth = 25;
 
 /*
 // Jewel case <http://en.wikipedia.org/wiki/Optical_disc_packaging#Jewelry_case>, the common size for CDs:
